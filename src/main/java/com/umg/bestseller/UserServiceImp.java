@@ -18,13 +18,11 @@ public class UserServiceImp implements UserService{
 	}
 	@Override
 	public User edit(User u) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.save(u);
 	}
 	@Override
 	public User listarId(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.findById(id);
 	}
 	@Override
 	public User add(User u) {
@@ -32,8 +30,11 @@ public class UserServiceImp implements UserService{
 	}
 	@Override
 	public User delete(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		User u = repository.findById(id);
+		if(u != null) {
+			repository.delete(u);
+		}
+		return u;
 	}
 
 }

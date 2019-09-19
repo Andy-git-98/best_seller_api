@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,5 +30,17 @@ public class Controller {
 		// TODO Auto-generated method stub
 		return service.add(u);
 	}
-	
+	@GetMapping(path = {"/{id}"})
+	public User listarId(@PathVariable("id")int id) {
+		return service.listarId(id);
+	}
+	@PutMapping(path = {"/{id}"})
+	public User Edit(@PathVariable("id")int id,@RequestBody User u) {
+		u.setId(id);
+		return service.edit(u);
+	}	
+	@DeleteMapping(path = {"/{id}"})
+	public User delete(@PathVariable("id") int id) {
+		return service.delete(id);
+	}
 }
