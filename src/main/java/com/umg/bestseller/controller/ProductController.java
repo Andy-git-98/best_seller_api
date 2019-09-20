@@ -1,4 +1,4 @@
-package com.umg.bestseller;
+package com.umg.bestseller.controller;
 
 import java.util.List;
 
@@ -13,34 +13,36 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.umg.bestseller.ProductService;
+import com.umg.bestseller.Entity.Product;
+
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
-@RequestMapping({"/users"})
-public class Controller {
+@RequestMapping({"/products"})
+public class ProductController {
 	
 	@Autowired
-	UserService service;
+	ProductService product;
 	
 	@GetMapping
-	public List<User> listar(){
-		return service.listar();
+	public List<Product> listar(){
+		return product.listar();
 	}
 	@PostMapping
-	public User add(@RequestBody User u) {
-		// TODO Auto-generated method stub
-		return service.add(u);
+	public Product add(@RequestBody Product p) {
+		return product.add(p);
 	}
 	@GetMapping(path = {"/{id}"})
-	public User listarId(@PathVariable("id")int id) {
-		return service.listarId(id);
+	public Product listarId(@PathVariable("id")int id) {
+		return product.listarId(id);
 	}
 	@PutMapping(path = {"/{id}"})
-	public User Edit(@PathVariable("id")int id,@RequestBody User u) {
-		u.setId(id);
-		return service.edit(u);
+	public Product Edit(@PathVariable("id")int id,@RequestBody Product p) {
+		p.setId(id);
+		return product.edit(p);
 	}	
 	@DeleteMapping(path = {"/{id}"})
-	public User delete(@PathVariable("id") int id) {
-		return service.delete(id);
+	public Product delete(@PathVariable("id") int id) {
+		return product.delete(id);
 	}
 }

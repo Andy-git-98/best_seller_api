@@ -3,6 +3,8 @@ package com.umg.bestseller;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.repository.Repository;
 
+import com.umg.bestseller.Entity.User;
+
 import java.util.List;
 
 @EnableJpaRepositories(value = "UserRepository", repositoryFactoryBeanClass = UserServiceImp.class)

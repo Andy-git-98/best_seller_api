@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
+import com.umg.bestseller.Entity.User;
 
 @Component
 public class UserServiceImp implements UserService{
