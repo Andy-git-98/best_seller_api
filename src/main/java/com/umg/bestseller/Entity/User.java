@@ -23,7 +23,7 @@ public class User {
 	private String delAddress;
 	@Column(name="EMAIL")
 	private String email;
-	@Column(name="USERNAME")
+	@Column(name="USERNAME",unique=true)
 	private String userName;
 	@Column(name="PASS")
 	private String pass;
