@@ -31,6 +31,8 @@ public class User {
 	private String role;
 	@Column(name="STATUS")
 	private String status;
+	@Column(name="IMAGE")
+	private String image;
 	
 
 	public int getId() {
@@ -108,6 +110,12 @@ public class User {
 	}
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
 	}
 	
 }
